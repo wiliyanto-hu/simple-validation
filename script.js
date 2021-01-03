@@ -3,27 +3,18 @@ const email = document.querySelector("#email");
 const phone = document.querySelector("#phone");
 const zip = document.querySelector("#zip");
 
-nameInput.addEventListener("blur", () => {
-  if (validateName()) {
-    console.log("OK");
+function validate(inputForm, fName) {
+  if (fName()) {
+    inputForm.classList.remove("is-invalid");
   } else {
-    console.log("No");
+    inputForm.classList.add("is-invalid");
   }
-});
-email.addEventListener("blur", () => {
-  if (validateEmail()) {
-    console.log("OK");
-  } else {
-    console.log("No");
-  }
-});
-phone.addEventListener("blur", () => {
-  if (validatePhone()) {
-    console.log("OK");
-  } else {
-    console.log("No");
-  }
-});
+}
+
+nameInput.addEventListener("blur", () => validate(nameInput, validateName));
+email.addEventListener("blur", () => validate(email, validateEmail));
+phone.addEventListener("blur", () => validate(phone, validatePhone));
+zip.addEventListener("blur", () => validate(zip, validateZip));
 
 function validateName() {
   const regex = /^[a-zA-Z ]{2,}$/;
@@ -36,4 +27,8 @@ function validateEmail() {
 function validatePhone() {
   const regex = /^\d{10,15}$/;
   return regex.test(phone.value);
+}
+function validateZip() {
+  const regex = /^\d{5}$/;
+  return regex.test(zip.value);
 }
