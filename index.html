@@ -8,11 +8,17 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <style>
+      .done{
+        opacity: 0;
+        transition: opacity 1s ease-out;;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 mx-auto mt-5">
+        <div class="col-lg-8 col-md-8 col-sm-10 mx-auto mt-5">
           <form>
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -49,7 +55,6 @@
                 Please insert valid phone number
               </div>
             </div>
-            
             <div class="mb-3">
               <label for="zip" class="form-label">Zip Code</label>
               <input
@@ -65,7 +70,7 @@
             </div>
             
             
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id='submit' type="submit" class="btn btn-primary">Submit</button>
             
         </div>
         
